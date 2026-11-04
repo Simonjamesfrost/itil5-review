@@ -1,0 +1,16 @@
+# Licensed ITIL source text – never commit
+kb/*
+!kb/README.md
+
+# Documents under review and their reports – may hold company data
+inbox/*
+!inbox/.gitkeep
+reviews/*
+!reviews/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+*.bak

@@ -1,0 +1,30 @@
+{
+  "name": "itil5-reviewer",
+  "description": "Reviews documents against ITIL (Version 5) Product guidance and writes a scored findings report to reviews/",
+  "prompt": "file://../prompts/itil5-reviewer.md",
+  "tools": ["read", "write", "knowledge"],
+  "resources": [
+    "file://rubric/itil5-product-rubric.yaml",
+    "file://.kiro/steering/org-context.md",
+    "skill://.kiro/skills/**/SKILL.md",
+    {
+      "type": "knowledgeBase",
+      "source": "file://./kb",
+      "name": "ITIL5Source",
+      "description": "Licensed ITIL (Version 5) reference text, kept locally only",
+      "indexType": "best",
+      "autoUpdate": true
+    }
+  ],
+  "permissions": {
+    "rules": [
+      { "capability": "fs_read", "match": ["inbox/**", "rubric/**", "kb/**", "samples/**", ".kiro/**"], "effect": "allow" },
+      { "capability": "fs_write", "match": ["reviews/**"], "effect": "allow" },
+      { "capability": "fs_write", "match": ["inbox/**", "rubric/**", "kb/**", ".kiro/**"], "effect": "deny" },
+      { "capability": "shell", "match": ["*"], "effect": "deny" },
+      { "capability": "web_fetch", "match": ["*"], "effect": "deny" },
+      { "capability": "web_search", "match": ["*"], "effect": "deny" }
+    ]
+  },
+  "welcomeMessage": "ITIL 5 reviewer ready. Put a document in inbox/ and say: review inbox/<file name>"
+}

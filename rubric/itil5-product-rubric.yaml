@@ -1,0 +1,506 @@
+# ITIL 5 Product review rubric
+#
+# Written in our own words, organised around the eight ITIL Product and
+# Service Lifecycle activities plus cross-cutting checks.
+#
+# STATUS: v0.1 draft. Criteria are based on the published ITIL (Version 5)
+# syllabus structure (key concepts and practices, steps and outputs, success
+# factors and metrics for each activity) and ITIL 4 concepts that carried
+# over. Check each criterion against the ITIL Product (Version 5) source
+# and set `verified: true` once confirmed.
+#
+# Fields
+#   id        stable ID used in reports – never reuse a retired ID
+#   activity  discover | design | acquire | build | transition | operate |
+#             deliver | support | cross-cutting
+#   criterion what good looks like, in one line
+#   look_for  evidence the reviewer should expect to see
+#   weight    1 = useful, 2 = important, 3 = essential
+#   source    where in ITIL this comes from (section name, not text)
+#   verified  false until checked against source
+
+version: "0.1"
+framework: "ITIL (Version 5) – Product"
+
+criteria:
+
+  # ---------------------------------------------------------------- DISCOVER
+  - id: DIS-01
+    activity: discover
+    criterion: Consumers and stakeholders are named, with their needs stated
+    look_for: named consumer groups or personas; needs or problems in their terms; who sponsors and who uses
+    weight: 3
+    source: ITIL Product – Discover – key concepts
+    verified: false
+
+  - id: DIS-02
+    activity: discover
+    criterion: The opportunity or problem is stated with evidence
+    look_for: data, research, feedback or incidents that show the need is real
+    weight: 2
+    source: ITIL Product – Discover – steps and outputs
+    verified: false
+
+  - id: DIS-03
+    activity: discover
+    criterion: Intended value and outcomes are stated and measurable
+    look_for: outcomes for consumers and the organisation; how success will be measured; baseline if known
+    weight: 3
+    source: ITIL Product – Discover – success factors and metrics
+    verified: false
+
+  - id: DIS-04
+    activity: discover
+    criterion: Market, context or alternatives have been considered
+    look_for: existing products or services, competitors, build vs reuse options, constraints
+    weight: 1
+    source: ITIL Product – Discover – key concepts
+    verified: false
+
+  - id: DIS-05
+    activity: discover
+    criterion: Product direction or vision is clear and fits wider strategy
+    look_for: vision or goal statement; link to portfolio, strategy or objectives
+    weight: 2
+    source: ITIL Product – Discover – steps and outputs
+    verified: false
+
+  - id: DIS-06
+    activity: discover
+    criterion: Key assumptions and risks are listed with a plan to test them
+    look_for: assumptions, unknowns, experiments or validation steps
+    weight: 2
+    source: ITIL Product – Discover – success factors
+    verified: false
+
+  # ------------------------------------------------------------------ DESIGN
+  - id: DES-01
+    activity: design
+    criterion: Requirements cover function, quality and constraints
+    look_for: functional needs; non-functional needs (performance, availability, security, usability); constraints
+    weight: 3
+    source: ITIL Product – Design – key concepts and practices
+    verified: false
+
+  - id: DES-02
+    activity: design
+    criterion: The consumer experience and service journey are designed, not left to chance
+    look_for: user journeys, touchpoints, how consumers get access, request and get help
+    weight: 2
+    source: ITIL Product – Design – key concepts
+    verified: false
+
+  - id: DES-03
+    activity: design
+    criterion: Architecture and integration points are described
+    look_for: components, interfaces, dependencies on other products or services, data flows
+    weight: 2
+    source: ITIL Product – Design – steps and outputs
+    verified: false
+
+  - id: DES-04
+    activity: design
+    criterion: Design covers how the product will be operated and supported, not just built
+    look_for: operational requirements, monitoring, support model, capacity, continuity
+    weight: 3
+    source: ITIL Product – Design – steps and outputs
+    verified: false
+
+  - id: DES-05
+    activity: design
+    criterion: Security, privacy and compliance needs are built into the design
+    look_for: data classification, access control, regulatory needs, validation where required
+    weight: 3
+    source: ITIL Product – Design – key concepts and practices
+    verified: false
+
+  - id: DES-06
+    activity: design
+    criterion: Design decisions and trade-offs are recorded
+    look_for: options considered, chosen approach, reasons
+    weight: 1
+    source: ITIL Product – Design – success factors
+    verified: false
+
+  # ----------------------------------------------------------------- ACQUIRE
+  - id: ACQ-01
+    activity: acquire
+    criterion: What needs to be acquired is clear (people, technology, services, data)
+    look_for: list of resources or components; what is bought, built or reused
+    weight: 2
+    source: ITIL Product – Acquire – key concepts
+    verified: false
+
+  - id: ACQ-02
+    activity: acquire
+    criterion: Supplier selection and agreements are covered
+    look_for: selection criteria, contracts, service levels from suppliers, exit terms
+    weight: 2
+    source: ITIL Product – Acquire – steps and outputs
+    verified: false
+
+  - id: ACQ-03
+    activity: acquire
+    criterion: Supplier and third-party risks are assessed
+    look_for: dependency, security, financial, compliance and concentration risk
+    weight: 2
+    source: ITIL Product – Acquire – success factors
+    verified: false
+
+  - id: ACQ-04
+    activity: acquire
+    criterion: Acquired items are confirmed to meet design and lifecycle needs
+    look_for: acceptance against requirements; fit with architecture; support and end-of-life terms
+    weight: 2
+    source: ITIL Product – Acquire – success factors and metrics
+    verified: false
+
+  - id: ACQ-05
+    activity: acquire
+    criterion: Costs are known and tracked
+    look_for: one-off and running costs; budget owner; how spend is monitored
+    weight: 1
+    source: ITIL Product – Acquire – metrics
+    verified: false
+
+  # ------------------------------------------------------------------- BUILD
+  - id: BLD-01
+    activity: build
+    criterion: Build follows the agreed design and links back to requirements
+    look_for: traceability from requirements or backlog to built components
+    weight: 2
+    source: ITIL Product – Build – key concepts
+    verified: false
+
+  - id: BLD-02
+    activity: build
+    criterion: Work is delivered in small increments with feedback
+    look_for: iterations, sprints, releases, demos, user feedback loops
+    weight: 2
+    source: ITIL Product – Build – key concepts and practices
+    verified: false
+
+  - id: BLD-03
+    activity: build
+    criterion: Testing approach is defined and covers quality needs
+    look_for: test levels and types; non-functional testing; who tests; entry and exit criteria
+    weight: 3
+    source: ITIL Product – Build – steps and outputs
+    verified: false
+
+  - id: BLD-04
+    activity: build
+    criterion: Integration with other components and services is built and tested
+    look_for: integration testing; environment plan; dependency management
+    weight: 2
+    source: ITIL Product – Build – steps and outputs
+    verified: false
+
+  - id: BLD-05
+    activity: build
+    criterion: Automation is used for build, test and deployment where sensible
+    look_for: CI/CD, automated tests, pipeline, infrastructure as code
+    weight: 1
+    source: ITIL Product – Build – key concepts and practices
+    verified: false
+
+  - id: BLD-06
+    activity: build
+    criterion: Quality is measured during build
+    look_for: defect rates, test coverage, definition of done
+    weight: 1
+    source: ITIL Product – Build – success factors and metrics
+    verified: false
+
+  # -------------------------------------------------------------- TRANSITION
+  - id: TRN-01
+    activity: transition
+    criterion: Changes are assessed and authorised before going live
+    look_for: change type, risk assessment, approver, change record
+    weight: 3
+    source: ITIL Product – Transition – key concepts and practices
+    verified: false
+
+  - id: TRN-02
+    activity: transition
+    criterion: Release and deployment approach is defined
+    look_for: release scope, deployment method, schedule, environments, who does what
+    weight: 3
+    source: ITIL Product – Transition – steps and outputs
+    verified: false
+
+  - id: TRN-03
+    activity: transition
+    criterion: Acceptance criteria for go-live are agreed with operate and support teams
+    look_for: go/no-go criteria; sign-off owners; operational readiness checks
+    weight: 3
+    source: ITIL Product – Transition – steps and outputs
+    verified: false
+
+  - id: TRN-04
+    activity: transition
+    criterion: Rollback or remediation plan exists
+    look_for: backout steps, decision point, time to recover
+    weight: 3
+    source: ITIL Product – Transition – success factors
+    verified: false
+
+  - id: TRN-05
+    activity: transition
+    criterion: Knowledge and handover to support are planned
+    look_for: training, knowledge articles, early life support, hypercare period
+    weight: 2
+    source: ITIL Product – Transition – steps and outputs
+    verified: false
+
+  - id: TRN-06
+    activity: transition
+    criterion: Users and stakeholders are told what is changing and when
+    look_for: communication plan, release notes, training for users
+    weight: 2
+    source: ITIL Product – Transition – success factors
+    verified: false
+
+  - id: TRN-07
+    activity: transition
+    criterion: Success of the transition is measured
+    look_for: change success rate, incidents after release, adoption
+    weight: 1
+    source: ITIL Product – Transition – metrics
+    verified: false
+
+  # ----------------------------------------------------------------- OPERATE
+  - id: OPR-01
+    activity: operate
+    criterion: Monitoring and event handling are defined
+    look_for: what is monitored, thresholds, alerts, who responds
+    weight: 3
+    source: ITIL Product – Operate – key concepts and practices
+    verified: false
+
+  - id: OPR-02
+    activity: operate
+    criterion: Routine operational tasks are documented
+    look_for: schedules, jobs, backups, maintenance windows, procedures
+    weight: 2
+    source: ITIL Product – Operate – steps and outputs
+    verified: false
+
+  - id: OPR-03
+    activity: operate
+    criterion: Availability, capacity and performance are managed
+    look_for: targets, capacity plan, performance thresholds, scaling
+    weight: 2
+    source: ITIL Product – Operate – key concepts
+    verified: false
+
+  - id: OPR-04
+    activity: operate
+    criterion: Continuity and recovery are planned and tested
+    look_for: backup and restore, disaster recovery, recovery time and point objectives, test dates
+    weight: 3
+    source: ITIL Product – Operate – success factors
+    verified: false
+
+  - id: OPR-05
+    activity: operate
+    criterion: Security operations are covered
+    look_for: access reviews, patching, vulnerability management, logging
+    weight: 2
+    source: ITIL Product – Operate – key concepts and practices
+    verified: false
+
+  - id: OPR-06
+    activity: operate
+    criterion: Operational health is measured and reported
+    look_for: uptime, mean time to detect and restore, dashboards
+    weight: 1
+    source: ITIL Product – Operate – metrics
+    verified: false
+
+  # ----------------------------------------------------------------- DELIVER
+  - id: DLV-01
+    activity: deliver
+    criterion: The service offering is clearly defined for consumers
+    look_for: what is offered, who can use it, how to access it, what is not included
+    weight: 3
+    source: ITIL Product – Deliver – key concepts
+    verified: false
+
+  - id: DLV-02
+    activity: deliver
+    criterion: Service levels are agreed and based on what consumers value
+    look_for: service level targets, how they were agreed, link to outcomes not just technical measures
+    weight: 3
+    source: ITIL Product – Deliver – key concepts and practices
+    verified: false
+
+  - id: DLV-03
+    activity: deliver
+    criterion: Service requests and access are handled through a defined route
+    look_for: request catalogue, fulfilment steps, approvals, timescales
+    weight: 2
+    source: ITIL Product – Deliver – steps and outputs
+    verified: false
+
+  - id: DLV-04
+    activity: deliver
+    criterion: Consumer experience and satisfaction are tracked
+    look_for: surveys, feedback, experience measures, complaints
+    weight: 2
+    source: ITIL Product – Deliver – success factors and metrics
+    verified: false
+
+  - id: DLV-05
+    activity: deliver
+    criterion: Service performance is reviewed with consumers regularly
+    look_for: service reviews, reports, owners, frequency
+    weight: 2
+    source: ITIL Product – Deliver – steps and outputs
+    verified: false
+
+  # ----------------------------------------------------------------- SUPPORT
+  - id: SUP-01
+    activity: support
+    criterion: Users know how to get help
+    look_for: channels, hours, self-service, escalation contacts
+    weight: 3
+    source: ITIL Product – Support – key concepts
+    verified: false
+
+  - id: SUP-02
+    activity: support
+    criterion: Incidents are logged, prioritised and resolved to agreed targets
+    look_for: priority model, response and resolution targets, major incident route
+    weight: 3
+    source: ITIL Product – Support – key concepts and practices
+    verified: false
+
+  - id: SUP-03
+    activity: support
+    criterion: Support tiers and escalation paths are defined, including suppliers
+    look_for: first, second and third line roles; supplier escalation; handoffs
+    weight: 2
+    source: ITIL Product – Support – steps and outputs
+    verified: false
+
+  - id: SUP-04
+    activity: support
+    criterion: Root causes of repeat issues are found and fixed
+    look_for: problem management, trend analysis, known errors, workarounds
+    weight: 2
+    source: ITIL Product – Support – key concepts and practices
+    verified: false
+
+  - id: SUP-05
+    activity: support
+    criterion: Knowledge is captured and kept current
+    look_for: knowledge base, article ownership, review cycle
+    weight: 1
+    source: ITIL Product – Support – success factors
+    verified: false
+
+  - id: SUP-06
+    activity: support
+    criterion: Support performance is measured
+    look_for: resolution times, first contact resolution, backlog, satisfaction
+    weight: 1
+    source: ITIL Product – Support – metrics
+    verified: false
+
+  # ----------------------------------------------------------- CROSS-CUTTING
+  - id: XC-01
+    activity: cross-cutting
+    criterion: The document states its purpose, scope and audience
+    look_for: purpose statement, in and out of scope, who it is for
+    weight: 2
+    source: General good practice
+    verified: true
+
+  - id: XC-02
+    activity: cross-cutting
+    criterion: Value is described as co-created with consumers, not just delivered to them
+    look_for: consumer involvement, feedback, shared responsibilities
+    weight: 2
+    source: ITIL – key concepts – value co-creation
+    verified: false
+
+  - id: XC-03
+    activity: cross-cutting
+    criterion: The work is placed in an end-to-end value stream
+    look_for: where this fits from demand to value; upstream and downstream steps; handoffs
+    weight: 2
+    source: ITIL – value streams
+    verified: false
+
+  - id: XC-04
+    activity: cross-cutting
+    criterion: Builds on what already exists and keeps things simple
+    look_for: reuse of existing services, tools and processes; no unnecessary steps
+    weight: 1
+    source: ITIL guiding principles
+    verified: false
+
+  - id: XC-05
+    activity: cross-cutting
+    criterion: Works in small steps with feedback, and the right people are involved
+    look_for: phased approach, checkpoints, stakeholder engagement, visibility of progress
+    weight: 1
+    source: ITIL guiding principles
+    verified: false
+
+  - id: XC-06
+    activity: cross-cutting
+    criterion: Considers the whole system, not one part in isolation
+    look_for: impact on other teams, services, processes and users
+    weight: 1
+    source: ITIL guiding principles
+    verified: false
+
+  - id: XC-07
+    activity: cross-cutting
+    criterion: All four dimensions are considered
+    look_for: organisations and people; information and technology; partners and suppliers; value streams and processes
+    weight: 2
+    source: ITIL four dimensions
+    verified: false
+
+  - id: XC-08
+    activity: cross-cutting
+    criterion: Roles, ownership and decision rights are clear
+    look_for: product or service owner, accountable roles, RACI, approvers
+    weight: 3
+    source: ITIL – governance
+    verified: false
+
+  - id: XC-09
+    activity: cross-cutting
+    criterion: Risks, compliance and controls are identified and owned
+    look_for: risk log, compliance needs, controls, audit trail, owners
+    weight: 3
+    source: ITIL – governance
+    verified: false
+
+  - id: XC-10
+    activity: cross-cutting
+    criterion: Use of AI and automation is governed
+    look_for: human oversight, data quality, accountability, checking of outputs, ethics; or a clear case for automating manual work
+    weight: 2
+    source: ITIL (Version 5) – AI and automation guidance
+    verified: false
+
+  - id: XC-11
+    activity: cross-cutting
+    criterion: Success measures have targets or baselines
+    look_for: named measures, targets, baselines, data source, who reports
+    weight: 2
+    source: ITIL – measurement and reporting
+    verified: false
+
+  - id: XC-12
+    activity: cross-cutting
+    criterion: There is a route for review and continual improvement
+    look_for: review dates, lessons learned, improvement backlog, document owner and version control
+    weight: 2
+    source: ITIL – continual improvement
+    verified: false
