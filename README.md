@@ -2,6 +2,8 @@
 
 A Kiro CLI agent that reviews documents against ITIL (Version 5) Product guidance and writes a scored findings report.
 
+**New here? Start with [HOWTO.md](HOWTO.md)** – setting up on the work machine, running a review, and getting updates.
+
 ## What's in here
 
 ```
