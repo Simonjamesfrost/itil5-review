@@ -8,6 +8,10 @@ inbox/*
 reviews/*
 !reviews/.gitkeep
 
+# Value models built from company documents
+models/*
+!models/.gitkeep
+
 # OS / editor
 .DS_Store
 Thumbs.db

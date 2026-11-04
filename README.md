@@ -23,6 +23,17 @@ samples/sample-release-plan.md test document
 CLAUDE.md                      lets you test the same agent in Claude Code
 ```
 
+## Value modeller (v0.2)
+
+A second agent, `itil5-value-modeller`, builds a value creation model and Mermaid diagrams for a service instead of scoring a document.
+
+```bash
+kiro-cli --agent itil5-value-modeller
+> model inbox/<file name>
+```
+
+Output goes to `models/` (gitignored). Files: `.kiro/agents/itil5-value-modeller.json`, `.kiro/prompts/itil5-value-modeller.md`, and the skills `value-model` and `diagram-standards`.
+
 ## Moving it to the work machine
 
 **On the Mac (once):**
