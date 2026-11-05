@@ -29,10 +29,12 @@ A second agent, `itil5-value-modeller`, builds a value creation model and Mermai
 
 ```bash
 kiro-cli --agent itil5-value-modeller
-> model inbox/<file name>
+> model <path to source file>
 ```
 
-Output goes to `models/` (gitignored). Files: `.kiro/agents/itil5-value-modeller.json`, `.kiro/prompts/itil5-value-modeller.md`, and the skills `value-model` and `diagram-standards`.
+Output goes to `C:\Users\sfrost\Downloads\` as `<service-name>-value-model-<date>.md` — a working location. Copy the finished model into the relevant project folder once the content is agreed (consumer outcomes are drafted as "Unconfirmed" until you confirm them). Files: `.kiro/agents/itil5-value-modeller.json`, `.kiro/prompts/itil5-value-modeller.md`, and the skills `value-model` and `diagram-standards`.
+
+> The output path `C:\Users\sfrost\Downloads\` is hard-coded in the agent config and prompt for this machine. On a different machine or user, edit the `fs_write` rule and the save path in `.kiro/prompts/itil5-value-modeller.md` to your own working folder.
 
 ## Moving it to the work machine
 

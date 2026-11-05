@@ -1,6 +1,6 @@
 {
   "name": "itil5-value-modeller",
-  "description": "Builds a value creation model and Mermaid diagrams for a service from source documents, written to models/",
+  "description": "Builds a value creation model and Mermaid diagrams for a service from source documents, written to the Downloads working folder",
   "prompt": "file://../prompts/itil5-value-modeller.md",
   "tools": ["read", "write", "knowledge"],
   "resources": [
@@ -18,13 +18,13 @@
   ],
   "permissions": {
     "rules": [
-      { "capability": "fs_read", "match": ["inbox/**", "kb/**", "samples/**", "models/**", ".kiro/**", "rubric/**"], "effect": "allow" },
-      { "capability": "fs_write", "match": ["models/**"], "effect": "allow" },
+      { "capability": "fs_read", "match": ["inbox/**", "kb/**", "samples/**", "models/**", ".kiro/**", "rubric/**", "**"], "effect": "allow" },
+      { "capability": "fs_write", "match": ["models/**", "C:/Users/sfrost/Downloads/**"], "effect": "allow" },
       { "capability": "fs_write", "match": ["inbox/**", "rubric/**", "kb/**", ".kiro/**", "reviews/**"], "effect": "deny" },
       { "capability": "shell", "match": ["*"], "effect": "deny" },
       { "capability": "web_fetch", "match": ["*"], "effect": "deny" },
       { "capability": "web_search", "match": ["*"], "effect": "deny" }
     ]
   },
-  "welcomeMessage": "ITIL 5 value modeller ready. Put source documents in inbox/ and say: model inbox/<file name>"
+  "welcomeMessage": "ITIL 5 value modeller ready. Name a source document and say: model <path to file>. The model is written to Downloads for you to copy into the project folder."
 }
