@@ -1,0 +1,32 @@
+{
+  "name": "siam-reviewer",
+  "description": "Reviews documents from a SIAM (service integration and management) point of view – how several service providers, a service integrator and the customer work together – and writes a scored findings report to reviews/",
+  "prompt": "file://../prompts/siam-reviewer.md",
+  "tools": ["read", "write", "knowledge"],
+  "resources": [
+    "file://rubric/siam-rubric.yaml",
+    "file://.kiro/steering/org-context.md",
+    "skill://.kiro/skills/siam-doc-classification/SKILL.md",
+    "skill://.kiro/skills/siam-checks/SKILL.md",
+    "skill://.kiro/skills/report-format/SKILL.md",
+    {
+      "type": "knowledgeBase",
+      "source": "file://./kb-siam",
+      "name": "SIAMSource",
+      "description": "SIAM Body of Knowledge and SIAM Process Guides (Scopism), kept locally only",
+      "indexType": "best",
+      "autoUpdate": true
+    }
+  ],
+  "permissions": {
+    "rules": [
+      { "capability": "fs_read", "match": ["inbox/**", "rubric/**", "kb-siam/**", "samples/**", ".kiro/**"], "effect": "allow" },
+      { "capability": "fs_write", "match": ["reviews/**"], "effect": "allow" },
+      { "capability": "fs_write", "match": ["inbox/**", "rubric/**", "kb/**", "kb-siam/**", ".kiro/**"], "effect": "deny" },
+      { "capability": "shell", "match": ["*"], "effect": "deny" },
+      { "capability": "web_fetch", "match": ["*"], "effect": "deny" },
+      { "capability": "web_search", "match": ["*"], "effect": "deny" }
+    ]
+  },
+  "welcomeMessage": "SIAM reviewer ready. Put a document in inbox/ and say: review inbox/<file name>"
+}

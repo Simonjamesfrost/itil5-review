@@ -1,16 +1,18 @@
 ---
 name: report-format
-description: The structure, scoring and wording for the review report written to reviews/. Use when writing the final report.
+description: The structure, scoring and wording for the review report written to reviews/, shared by the ITIL and SIAM reviewers. Use when writing the final report.
 ---
 
 # Report format
+
+Used by both reviewers. Where the template says **<Framework>**, write `ITIL 5` or `SIAM`. Where it says **area**, the ITIL reviewer uses lifecycle activities (discover, design …) and the SIAM reviewer uses rubric areas (Layers and roles, Governance …).
 
 ## Scoring
 
 - Met = 2, Partly = 1, Missing = 0, N/A = excluded
 - Score per criterion = points × criterion weight
 - Overall % = total scored ÷ total possible (in-scope criteria only), rounded to whole number
-- Activity RAG: Green ≥ 80%, Amber 50–79%, Red < 50%
+- Area RAG: Green ≥ 80%, Amber 50–79%, Red < 50%
 
 ## Verdict
 
@@ -23,9 +25,9 @@ description: The structure, scoring and wording for the review report written to
 Use exactly this structure. Keep each section tight.
 
 ```markdown
-# ITIL 5 Review: <document title>
+# <Framework> Review: <document title>
 
-**Reviewed:** <YYYY-MM-DD> · **File:** <path> · **Rubric version:** <version from rubric file>
+**Reviewed:** <YYYY-MM-DD> · **File:** <path> · **Rubric:** <rubric file name> v<version>
 
 ## Verdict
 
@@ -35,17 +37,13 @@ Use exactly this structure. Keep each section tight.
 
 ## Classification
 
-- **Document type:** …
-- **Primary activities:** …
-- **Secondary activities:** …
-- **Confidence:** …
+<Use the classification lines from your classification skill.>
 
-## Scores by activity
+## Scores by area
 
-| Activity | Score | RAG |
+| Area | Score | RAG |
 |---|---|---|
 | … | …% | 🟢/🟠/🔴 |
-| Cross-cutting | …% | … |
 
 ## Top 5 gaps
 
@@ -65,7 +63,8 @@ Use exactly this structure. Keep each section tight.
 
 ## General observations
 
-- <Anything worth saying that is not an ITIL criterion. Label clearly. Optional.>
+- <Anything worth saying that is not a rubric criterion. Label clearly. Optional.>
+- <If the other reviewer would add value, say so here, e.g. "Several providers involved – run siam-reviewer as well".>
 
 ## Review notes
 

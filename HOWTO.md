@@ -1,4 +1,11 @@
-# How to set up and use the ITIL 5 review agent
+# How to set up and use the review agents
+
+Two reviewers share this repo:
+
+- `itil5-reviewer` – one product or service across the ITIL lifecycle
+- `siam-reviewer` – how several suppliers, a service integrator and the customer work together
+
+The steps are the same for both – just swap the agent name.
 
 ## 1. Get it onto the work machine (first time)
 
@@ -29,7 +36,19 @@ review samples/sample-release-plan.md
 
 You should get a short verdict in the chat and a full report in `reviews/`. The sample has deliberate gaps (no rollback plan, no support handover, single approver), so it should come out as *Fit for purpose with changes* or *Not yet fit for purpose*.
 
-If the agent isn't found or Kiro complains about the config, run `/upgrade-agent diagnostics` inside Kiro – it will name the field it doesn't like.
+For the SIAM reviewer:
+
+```bash
+kiro-cli --agent siam-reviewer
+```
+
+```
+review samples/sample-major-incident-procedure.md
+```
+
+That sample has three suppliers each working to their own target, tickets passed between them, no end-to-end target and no shared priority model. It should come out as *Not yet fit for purpose*.
+
+If an agent isn't found or Kiro complains about the config, run `/upgrade-agent diagnostics` inside Kiro – it will name the field it doesn't like.
 
 ## 3. Review a real document
 
@@ -39,7 +58,7 @@ If the agent isn't found or Kiro complains about the config, run `/upgrade-agent
    - PDF: copy the text into a `.md` file.
 2. Put it in `inbox/`.
 3. In Kiro: `review inbox/<file name>`
-4. Open the report in `reviews/`.
+4. Open the report in `reviews/`. SIAM reports end in `-siam-review-<date>.md`, so the two never overwrite each other.
 
 `inbox/` and `reviews/` are never pushed to GitHub, so company documents stay on the machine.
 
@@ -63,17 +82,28 @@ If you have licensed ITIL (Version 5) text, for example from PeopleCert Plus:
 
 `kb/` is never pushed to GitHub. Copy it to each machine by hand.
 
-## 6. Change how the agent reviews
+## 5a. Add SIAM guidance (recommended)
+
+The SIAM guidance is a free download from scopism.com, so you can get it straight onto the work machine:
+
+1. Download the SIAM Body of Knowledge (and the Process Guides if listed) from scopism.com.
+2. Save as `.md` or `.txt` in `kb-siam/` if Kiro won't index the PDF.
+3. Restart Kiro.
+
+`kb-siam/` is never pushed to GitHub.
+
+## 6. Change how the agents review
 
 Make changes on the Mac, then push and pull.
 
-| To change | Edit |
-|---|---|
-| What gets checked | `rubric/itil5-product-rubric.yaml` |
-| How the review is done | `.kiro/prompts/itil5-reviewer.md` |
-| Report layout and scoring | `.kiro/skills/report-format/SKILL.md` |
-| Which activities apply to each document type | `.kiro/skills/doc-classification/SKILL.md` |
-| Local terms and house rules | `.kiro/steering/org-context.md` |
+| To change | ITIL reviewer | SIAM reviewer |
+|---|---|---|
+| What gets checked | `rubric/itil5-product-rubric.yaml` | `rubric/siam-rubric.yaml` |
+| How the review is done | `.kiro/prompts/itil5-reviewer.md` | `.kiro/prompts/siam-reviewer.md` |
+| What applies to each document type | `.kiro/skills/itil-doc-classification/SKILL.md` | `.kiro/skills/siam-doc-classification/SKILL.md` |
+| How each area is judged | `.kiro/skills/itil-cross-cutting/SKILL.md` | `.kiro/skills/siam-checks/SKILL.md` |
+| Report layout and scoring (shared) | `.kiro/skills/report-format/SKILL.md` | same file |
+| Local terms and house rules (shared) | `.kiro/steering/org-context.md` | same file |
 
 Then:
 

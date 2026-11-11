@@ -1,6 +1,14 @@
-# ITIL 5 Document Review Agent
+# Document Review Agents – ITIL 5 and SIAM
 
-A Kiro CLI agent that reviews documents against ITIL (Version 5) Product guidance and writes a scored findings report.
+Kiro CLI agents that review documents and write scored findings reports.
+
+| Agent | Looks at | Start with |
+|---|---|---|
+| `itil5-reviewer` | One product or service across the ITIL (Version 5) lifecycle | `kiro-cli --agent itil5-reviewer` |
+| `siam-reviewer` | How several providers, a service integrator and the customer work together (SIAM) | `kiro-cli --agent siam-reviewer` |
+| `itil5-value-modeller` | Builds a value model and diagrams for a service (see below) | `kiro-cli --agent itil5-value-modeller` |
+
+Not sure which reviewer? If the document involves two or more suppliers or teams handing work between them, run both. Each reviewer flags when the other would add something.
 
 **New here? Start with [HOWTO.md](HOWTO.md)** – setting up on the work machine, running a review, and getting updates.
 
@@ -8,20 +16,42 @@ A Kiro CLI agent that reviews documents against ITIL (Version 5) Product guidanc
 
 ```
 .kiro/
-  agents/itil5-reviewer.json   Kiro agent config
-  prompts/itil5-reviewer.md    system prompt – how the agent reviews
-  steering/org-context.md      your organisation's terms and house rules – edit this
+  agents/
+    itil5-reviewer.json          ITIL reviewer config
+    siam-reviewer.json           SIAM reviewer config
+    itil5-value-modeller.json    value modeller config
+  prompts/                       system prompts – how each agent works
+  steering/org-context.md        your organisation's terms and house rules – edit this
   skills/
-    doc-classification/        works out document type and lifecycle activities
-    cross-cutting/             guiding principles, four dimensions, governance, AI
-    report-format/             scoring, verdict and report template
-rubric/itil5-product-rubric.yaml   59 review criteria – the core asset
-kb/                            licensed ITIL text, local only (gitignored)
-inbox/                         documents to review (gitignored)
-reviews/                       reports written here (gitignored)
-samples/sample-release-plan.md test document
-CLAUDE.md                      lets you test the same agent in Claude Code
+    itil-doc-classification/     ITIL: document type and lifecycle activities
+    itil-cross-cutting/          ITIL: guiding principles, four dimensions, governance, AI
+    siam-doc-classification/     SIAM: document type, perspective, roadmap stage, areas
+    siam-checks/                 SIAM: how to judge each area, failure patterns
+    report-format/               shared: scoring, verdict and report template
+    value-model/, diagram-standards/   value modeller
+rubric/
+  itil5-product-rubric.yaml      59 ITIL criteria
+  siam-rubric.yaml               67 SIAM criteria across 11 areas
+kb/                              licensed ITIL text, local only (gitignored)
+kb-siam/                         SIAM guidance text, local only (gitignored)
+inbox/                           documents to review (gitignored)
+reviews/                         reports written here (gitignored)
+samples/
+  sample-release-plan.md         ITIL test document
+  sample-major-incident-procedure.md   SIAM test document (three suppliers)
+CLAUDE.md                        lets you test the agents in Claude Code
 ```
+
+## SIAM reviewer (v0.1)
+
+Reviews a document from the multi-provider point of view. It works out whose perspective the document is written from (customer, service integrator or provider), which SIAM roadmap stage it belongs to, and which areas apply. Then it checks accountability across all parties, joined-up processes, contracts, data ownership, end-to-end measures, collaboration and transitions. It also looks for common failure patterns, such as tickets being passed between suppliers, or every supplier reporting green while the end-to-end service is red.
+
+```bash
+kiro-cli --agent siam-reviewer
+> review samples/sample-major-incident-procedure.md
+```
+
+The rubric is written from the SIAM Professional Body of Knowledge (2nd edition, 2019) and SIAM Process Guides (2nd edition, 2020). It has not yet been checked against the 2025 SIAM BoK refresh. Download the guidance into `kb-siam/` – see `kb-siam/README.md`.
 
 ## Value modeller (v0.2)
 
@@ -60,7 +90,7 @@ cd itil5-review
 
 Later updates: `git pull` on the work machine after you push from the Mac.
 
-`kb/`, `inbox/` and `reviews/` never go to GitHub. Copy licensed ITIL text into `kb/` on each machine by hand.
+`kb/`, `kb-siam/`, `inbox/` and `reviews/` never go to GitHub. Copy licensed ITIL text into `kb/` and SIAM guidance into `kb-siam/` on each machine by hand.
 
 ## Running it in Kiro CLI
 
@@ -94,11 +124,11 @@ claude
 ## Before using on work documents
 
 - Check Kiro is approved for the kind of data in the document. Document content is sent to the model provider.
-- Check the rubric: criteria marked `verified: false` have not yet been checked against the ITIL Product (Version 5) source.
+- Check the rubrics: criteria marked `verified: false` have not yet been checked against the source. For SIAM, `verified: true` means checked against the 2019/2020 editions only.
 
 ## Next steps
 
-1. Run the sample and check the report reads well.
-2. Verify rubric criteria against ITIL Product (Version 5) and set `verified: true`.
+1. Run both samples and check the reports read well.
+2. Verify rubric criteria against ITIL Product (Version 5) and the 2025 SIAM BoK refresh, and set `verified: true`.
 3. Fill in `.kiro/steering/org-context.md`.
 4. Try 3 real documents and compare with your own review. Tune weights and wording.

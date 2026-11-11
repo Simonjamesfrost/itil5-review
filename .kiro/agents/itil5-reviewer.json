@@ -6,8 +6,8 @@
   "resources": [
     "file://rubric/itil5-product-rubric.yaml",
     "file://.kiro/steering/org-context.md",
-    "skill://.kiro/skills/doc-classification/SKILL.md",
-    "skill://.kiro/skills/cross-cutting/SKILL.md",
+    "skill://.kiro/skills/itil-doc-classification/SKILL.md",
+    "skill://.kiro/skills/itil-cross-cutting/SKILL.md",
     "skill://.kiro/skills/report-format/SKILL.md",
     {
       "type": "knowledgeBase",

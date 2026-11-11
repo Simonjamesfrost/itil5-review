@@ -1,0 +1,654 @@
+# SIAM review rubric
+#
+# Written in our own words. Organised by area rather than lifecycle, because a
+# SIAM review asks how several parties work together.
+#
+# STATUS: v0.1 draft.
+# Sources: SIAM Professional Body of Knowledge, 2nd edition (Scopism, Dec 2019)
+# and SIAM Process Guides, 2nd edition (Scopism, Mar 2020).
+# `verified: true` means the criterion was checked against the section named
+# in `source` in those editions. It has NOT yet been checked against the 2025
+# SIAM BoK refresh (free from scopism.com) – do that before relying on it.
+#
+# Fields
+#   id          stable ID used in reports – never reuse a retired ID
+#   area        STR | LAY | SVC | GOV | PRC | DAT | CON | PER | COL | TRN | IMP
+#   criterion   what good looks like, in one line
+#   look_for    evidence the reviewer should expect to see
+#   applies_to  which author perspectives this criterion applies to
+#               (customer, integrator, provider); N/A for the others
+#   weight      1 = useful, 2 = important, 3 = essential
+#   source      section of the SIAM guidance it comes from (name, not text)
+#   verified    see STATUS above
+
+version: "0.1"
+framework: "SIAM"
+
+areas:
+  STR: Strategy and business case
+  LAY: Layers and roles
+  SVC: Service model
+  GOV: Governance
+  PRC: Process integration
+  DAT: Data and tooling
+  CON: Contracts
+  PER: Performance and reporting
+  COL: Collaboration
+  TRN: Onboarding, transition and exit
+  IMP: Improvement
+
+criteria:
+
+  # ------------------------------------------------- STR strategy and business case
+  - id: STR-01
+    area: STR
+    criterion: Objectives and expected value of the multi-provider model are stated
+    look_for: strategic objectives; what the customer wants to get from SIAM; how value will be judged
+    applies_to: [customer, integrator]
+    weight: 3
+    source: BoK – Discovery & Strategy; Critical success factors (well-conceived strategy)
+    verified: true
+
+  - id: STR-02
+    area: STR
+    criterion: The reasons SIAM fits this situation are given, with risks
+    look_for: drivers (number of providers, need for end-to-end view, coordination problems); expected benefits and risks
+    applies_to: [customer]
+    weight: 2
+    source: BoK – Discovery & Strategy (why SIAM)
+    verified: true
+
+  - id: STR-03
+    area: STR
+    criterion: The model is tailored to the organisation's size, maturity and services, not copied
+    look_for: reference to current capability, scale and budget; reasons for design choices; no off-the-shelf model applied unchanged
+    applies_to: [customer, integrator]
+    weight: 3
+    source: BoK – Roadmap flow (designing without tailoring)
+    verified: true
+
+  - id: STR-04
+    area: STR
+    criterion: The SIAM structure is chosen with reasons
+    look_for: external, internal, hybrid or lead supplier integrator; factors weighed (skills, risk appetite, regulation, budget, timescales)
+    applies_to: [customer]
+    weight: 2
+    source: BoK – SIAM structures
+    verified: true
+
+  - id: STR-05
+    area: STR
+    criterion: Benefits are tracked against the business case and changes to scope re-test the benefits
+    look_for: benefits owner; measures and review points; scope change approval that considers impact on benefits
+    applies_to: [customer, integrator]
+    weight: 2
+    source: BoK – Governance requirements (strategic level, tracking benefits)
+    verified: true
+
+  # ---------------------------------------------------------- LAY layers and roles
+  - id: LAY-01
+    area: LAY
+    criterion: Customer, service integrator and service providers are each identified with their responsibilities
+    look_for: all three layers named; what each is responsible for; internal and external providers listed
+    applies_to: [customer, integrator, provider]
+    weight: 3
+    source: BoK – SIAM layers
+    verified: true
+
+  - id: LAY-02
+    area: LAY
+    criterion: The customer's retained capabilities are defined
+    look_for: which skills and decisions stay with the customer; who acts as the intelligent client
+    applies_to: [customer, integrator]
+    weight: 2
+    source: BoK – SIAM layers (customer organization, retained capabilities)
+    verified: true
+
+  - id: LAY-03
+    area: LAY
+    criterion: Roles and responsibilities cover every party, with reporting lines and decision authority
+    look_for: RACI or equivalent with customer, integrator and each provider; who each role reports to; level of authority
+    applies_to: [customer, integrator, provider]
+    weight: 3
+    source: BoK – Detailed roles and responsibilities; Process Guides – processes and the SIAM ecosystem
+    verified: true
+
+  - id: LAY-04
+    area: LAY
+    criterion: The integrator's scope is clear – it integrates and coordinates, it does not run every provider's process
+    look_for: what the integrator does and does not do; operational process activity left with providers
+    applies_to: [customer, integrator]
+    weight: 3
+    source: BoK – Process models (operational process activities)
+    verified: true
+
+  - id: LAY-05
+    area: LAY
+    criterion: The integrator is formally the customer's agent, with stated limits on its authority
+    look_for: delegated authority; areas withheld from the integrator (e.g. payment approval); providers told to work with the integrator
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: BoK – Service provider contracts (common law); Process Guides – Service level management
+    verified: true
+
+  - id: LAY-06
+    area: LAY
+    criterion: Impartiality is protected where the integrator is also a provider, or some providers are internal
+    look_for: separate management and staff for integrator and provider roles; internal teams managed through OLAs like external ones
+    applies_to: [customer, integrator]
+    weight: 2
+    source: BoK – Detailed roles and responsibilities; Critical success factors (impartiality)
+    verified: true
+
+  - id: LAY-07
+    area: LAY
+    criterion: Providers with a direct relationship to part of the business are still inside the model
+    look_for: such providers named and managed by the integrator; how their direct relationship is handled
+    applies_to: [customer, integrator]
+    weight: 1
+    source: BoK – Detailed roles and responsibilities
+    verified: true
+
+  - id: LAY-08
+    area: LAY
+    criterion: Skills needed for multi-party working are identified, including soft skills
+    look_for: capability or skills framework; negotiation, influencing, cross-cultural and handover skills
+    applies_to: [customer, integrator, provider]
+    weight: 1
+    source: BoK – Detailed roles and responsibilities (capability framework and skills maps)
+    verified: true
+
+  # ------------------------------------------------------------- SVC service model
+  - id: SVC-01
+    area: SVC
+    criterion: Each service element has exactly one accountable provider and none is left unassigned
+    look_for: service element list mapped to providers; no shared or orphan elements; duplicate services (e.g. two hosting providers) treated as separate elements
+    applies_to: [customer, integrator]
+    weight: 3
+    source: BoK – Service provider contracts (MECE)
+    verified: true
+
+  - id: SVC-02
+    area: SVC
+    criterion: Dependencies between providers' services are mapped
+    look_for: which services rely on which; upstream and downstream providers; impact if one fails
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: Process Guides – Service portfolio management; Service level management
+    verified: true
+
+  - id: SVC-03
+    area: SVC
+    criterion: The customer owns a service portfolio kept current with input from all providers
+    look_for: portfolio owner; providers obliged to supply portfolio information; planned, live and retired services
+    applies_to: [customer, integrator]
+    weight: 2
+    source: Process Guides – Service portfolio management
+    verified: true
+
+  - id: SVC-04
+    area: SVC
+    criterion: Providers are grouped by importance so governance effort matches the risk
+    look_for: strategic, tactical, commodity (or similar) categories; different governance depth per category
+    applies_to: [customer, integrator]
+    weight: 1
+    source: BoK – SIAM layers (service provider)
+    verified: true
+
+  # ---------------------------------------------------------------- GOV governance
+  - id: GOV-01
+    area: GOV
+    criterion: Governance is set at strategic, tactical and operational levels
+    look_for: what is governed at each level; who decides; link to corporate governance
+    applies_to: [customer, integrator]
+    weight: 3
+    source: BoK – Governance requirements
+    verified: true
+
+  - id: GOV-02
+    area: GOV
+    criterion: Boards, process forums and working groups have purpose, membership, cadence and decision rights
+    look_for: terms of reference; which parties attend; frequency; what each can decide or escalate
+    applies_to: [customer, integrator, provider]
+    weight: 3
+    source: BoK – SIAM structural elements; Operate governance structural elements
+    verified: false
+
+  - id: GOV-03
+    area: GOV
+    criterion: Control owners are named and the customer keeps accountability for what it delegates
+    look_for: control register or list with owners; what is delegated to the integrator; how the customer gets assurance controls work
+    applies_to: [customer, integrator]
+    weight: 3
+    source: BoK – Ownership of controls
+    verified: true
+
+  - id: GOV-04
+    area: GOV
+    criterion: Risks are owned, and the build-up of small risks across parties is considered
+    look_for: risk log with owners per party; aggregated risk across providers; risks reviewed against appetite
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: BoK – Governance requirements; Process Guides – Information security management; Audit and control
+    verified: true
+
+  - id: GOV-05
+    area: GOV
+    criterion: There is a route for resolving disputes between parties
+    look_for: dispute or escalation process; who arbitrates; timescales
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: BoK – Governance requirements (operational level); Dispute management
+    verified: false
+
+  - id: GOV-06
+    area: GOV
+    criterion: Audit rights cover every party and the integrated processes, not just each provider
+    look_for: audit rights in contracts; audits of end-to-end processes; findings tracked to closure
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: Process Guides – Audit and control
+    verified: true
+
+  - id: GOV-07
+    area: GOV
+    criterion: Governance is sized to the organisation, not bureaucratic for its own sake
+    look_for: governance depth matched to size and culture; review mechanism for the framework itself
+    applies_to: [customer, integrator]
+    weight: 1
+    source: BoK – Governance framework
+    verified: true
+
+  # -------------------------------------------------------- PRC process integration
+  - id: PRC-01
+    area: PRC
+    criterion: Each end-to-end process has one accountable owner, separate from the providers' local process owners
+    look_for: end-to-end process owner (usually integrator); customer accountable for outcomes; providers own local procedures
+    applies_to: [customer, integrator, provider]
+    weight: 3
+    source: Process Guides – Who owns the end to end process
+    verified: true
+
+  - id: PRC-02
+    area: PRC
+    criterion: Process models show purpose, activities, inputs and outputs between parties, controls, measures and supporting policies
+    look_for: swim lanes or flowcharts across parties; handoffs; controls; measures; policies and templates
+    applies_to: [integrator]
+    weight: 3
+    source: BoK – Process models
+    verified: true
+
+  - id: PRC-03
+    area: PRC
+    criterion: Provider procedures are shown to plug into the integrator's process model
+    look_for: reference to the end-to-end process model; where the provider receives and hands back work; shared standards used
+    applies_to: [provider]
+    weight: 3
+    source: Process Guides – Processes and the SIAM ecosystem; BoK – Integrated process models
+    verified: true
+
+  - id: PRC-04
+    area: PRC
+    criterion: Shared definitions are used across parties
+    look_for: common priority and severity model; change types and approval levels; security incident definition
+    applies_to: [customer, integrator, provider]
+    weight: 3
+    source: Process Guides – Data and information considerations; Incident; Change and release; Information security
+    verified: true
+
+  - id: PRC-05
+    area: PRC
+    criterion: Work that crosses providers is coordinated, with the end-to-end target protected
+    look_for: who coordinates multi-provider incidents and problems; routing rules; end-to-end target that holds even if each provider meets its own
+    applies_to: [integrator, provider]
+    weight: 3
+    source: Process Guides – Incident management; Problem management
+    verified: true
+
+  - id: PRC-06
+    area: PRC
+    criterion: Change approval includes every party the change could affect, scaled to risk
+    look_for: approvers by change type and risk; affected providers consulted; providers may self-approve low-risk changes that affect no one else
+    applies_to: [integrator, provider]
+    weight: 3
+    source: Process Guides – Change and release management
+    verified: true
+
+  - id: PRC-07
+    area: PRC
+    criterion: Releases are coordinated across providers, with integration testing and remediation responsibilities set
+    look_for: release schedule across providers; who tests integration between providers' services; remediation if a release fails; common release communications
+    applies_to: [integrator, provider]
+    weight: 2
+    source: Process Guides – Change and release management
+    verified: true
+
+  - id: PRC-08
+    area: PRC
+    criterion: Processes are kept as simple as the multi-party setting allows
+    look_for: minimal handoffs; fewest parties involved per step; automation of repeatable requests
+    applies_to: [integrator, provider]
+    weight: 1
+    source: Process Guides – Complexity; Request management
+    verified: true
+
+  # ---------------------------------------------------------- DAT data and tooling
+  - id: DAT-01
+    area: DAT
+    criterion: The customer owns or keeps guaranteed access to operational data if a provider or the integrator changes
+    look_for: data ownership statement; access on exit; records such as incidents and configuration data
+    applies_to: [customer, integrator, provider]
+    weight: 3
+    source: Process Guides – Who owns the data; Toolset considerations
+    verified: true
+
+  - id: DAT-02
+    area: DAT
+    criterion: A shared data dictionary or data standards apply to all parties
+    look_for: minimum record content; common fields, formats and classifications; time and date conventions
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: Process Guides – Is data and information consistent; BoK – Integration recommendations
+    verified: true
+
+  - id: DAT-03
+    area: DAT
+    criterion: A tooling strategy states which tools are used, who owns them and how they integrate
+    look_for: single or multiple toolsets; tool ownership; integration between parties' tools; access control
+    applies_to: [customer, integrator]
+    weight: 2
+    source: Process Guides – Toolset considerations; Toolset and information management
+    verified: true
+
+  - id: DAT-04
+    area: DAT
+    criterion: Shared configuration data is scoped, with maintenance and quality responsibilities set
+    look_for: what each party shares; who maintains shared items; data quality checks
+    applies_to: [integrator, provider]
+    weight: 2
+    source: Process Guides – Configuration management
+    verified: true
+
+  - id: DAT-05
+    area: DAT
+    criterion: Ownership of artefacts such as knowledge articles is agreed
+    look_for: intellectual property terms; whether providers can reuse each other's articles; what transfers on exit
+    applies_to: [customer, integrator, provider]
+    weight: 1
+    source: Process Guides – Who owns the intellectual property on artefacts
+    verified: true
+
+  # ---------------------------------------------------------------- CON contracts
+  - id: CON-01
+    area: CON
+    criterion: Contracts include integration obligations, not just each provider's own service
+    look_for: duty to follow process models, data standards and tooling; take part in forums; collaborate
+    applies_to: [customer, provider]
+    weight: 3
+    source: BoK – The importance of contracts in SIAM
+    verified: true
+
+  - id: CON-02
+    area: CON
+    criterion: Obligations common to all providers sit in a shared schedule, with specifics in each provider's statement of work
+    look_for: common services schedule or collaboration agreement; separate SOWs
+    applies_to: [customer]
+    weight: 2
+    source: BoK – Service provider contracts
+    verified: true
+
+  - id: CON-03
+    area: CON
+    criterion: The line between a performance breach and a contract breach is clear, with remedies applied consistently
+    look_for: thresholds for escalation from service level to supplier to contract management; consistent treatment of all providers
+    applies_to: [customer, integrator]
+    weight: 2
+    source: Process Guides – Supplier management; Contract management; Service level management
+    verified: true
+
+  - id: CON-04
+    area: CON
+    criterion: Remedies are shared fairly when several providers contributed to a failure, and failures caused by another provider are handled
+    look_for: apportionment rules; approach when one provider's miss was caused by another
+    applies_to: [customer, integrator]
+    weight: 2
+    source: Process Guides – Supplier management; Service level management
+    verified: true
+
+  - id: CON-05
+    area: CON
+    criterion: Incentives encourage collaboration, not only penalties
+    look_for: non-financial incentives; shared risk and reward; recognition
+    applies_to: [customer, integrator]
+    weight: 1
+    source: Process Guides – Supplier management; Contract management
+    verified: true
+
+  - id: CON-06
+    area: CON
+    criterion: Contracts allow regular realignment as the model changes
+    look_for: change mechanism; review of neighbouring contracts when one changes; avoids lock-in
+    applies_to: [customer]
+    weight: 2
+    source: BoK – The importance of contracts in SIAM; Process Guides – Contract management
+    verified: true
+
+  - id: CON-07
+    area: CON
+    criterion: There is an exit schedule covering handover, data, assets, staff, in-flight work and stranded costs
+    look_for: exit services schedule; closure items; point at which obligations end; no lingering partial obligations
+    applies_to: [customer, provider]
+    weight: 3
+    source: BoK – End of contract; Exit services schedule
+    verified: true
+
+  - id: CON-08
+    area: CON
+    criterion: Security obligations, including the right to suspend a provider that endangers others, are in contracts
+    look_for: security targets; breach notification across the ecosystem; suspension rights
+    applies_to: [customer, provider]
+    weight: 2
+    source: Process Guides – Information security management
+    verified: true
+
+  # ---------------------------------------------------- PER performance and reporting
+  - id: PER-01
+    area: PER
+    criterion: End-to-end service is measured as users experience it, not just per provider
+    look_for: end-to-end measures; user-experienced quality; drill-down to providers
+    applies_to: [customer, integrator]
+    weight: 3
+    source: BoK – Performance management and reporting framework; Integration recommendations
+    verified: true
+
+  - id: PER-02
+    area: PER
+    criterion: Each provider is measured against its targets, and delivery of obligations is tracked separately from performance
+    look_for: per-provider KPIs and SLAs; obligations list with due dates; both reported
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: BoK – Performance management and reporting framework (external provider obligations)
+    verified: true
+
+  - id: PER-03
+    area: PER
+    criterion: The integrator's own performance is measured
+    look_for: measures such as fewer disputes and escalations, correct routing, fewer handoffs, forum attendance, improvement results
+    applies_to: [customer, integrator]
+    weight: 2
+    source: BoK – Differentiation between provider and integrator performance
+    verified: true
+
+  - id: PER-04
+    area: PER
+    criterion: Measures use common definitions, calculation rules and reporting periods across providers
+    look_for: one definition of availability etc.; aligned periods; reporting formats and frequency
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: Process Guides – Service level management; Monitoring and measuring
+    verified: true
+
+  - id: PER-05
+    area: PER
+    criterion: Provider reports are checked, and gaps in non-standard data are handled
+    look_for: validation of provider reports; other data sources used; approach for providers that do not report in the standard way
+    applies_to: [integrator]
+    weight: 2
+    source: Process Guides – Service level management; BoK – Dealing with incomplete or non-standard data
+    verified: true
+
+  - id: PER-06
+    area: PER
+    criterion: Measures do not reward bad multi-provider behaviour
+    look_for: no metric that rewards passing tickets on or closing early; measures of reassignment and reopened work
+    applies_to: [customer, integrator]
+    weight: 2
+    source: BoK – Governance requirements (poorly thought-out metrics); Process Guides – Incident management
+    verified: true
+
+  - id: PER-07
+    area: PER
+    criterion: Reporting is concise and goes to the customer through the integrator
+    look_for: few headline measures, detail on request; exception reporting with trends; single reporting route
+    applies_to: [integrator]
+    weight: 1
+    source: BoK – Performance management and reporting framework; Integration recommendations
+    verified: true
+
+  # ------------------------------------------------------------ COL collaboration
+  - id: COL-01
+    area: COL
+    criterion: Collaboration is designed in, with forums and agreed ways of working
+    look_for: collaboration agreement or schedule; supplier or process forums; shared goals
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: BoK – Collaboration model; Process Guides – Supplier management
+    verified: true
+
+  - id: COL-02
+    area: COL
+    criterion: Collaborative behaviour is measured or recognised
+    look_for: behaviour measures (e.g. peer ratings, time to agree an approach); recognition of good collaboration
+    applies_to: [customer, integrator]
+    weight: 1
+    source: BoK – Collaboration model
+    verified: true
+
+  - id: COL-03
+    area: COL
+    criterion: Commercially sensitive information has agreed handling rules so providers can share what is needed
+    look_for: confidentiality rules; what each provider must share and with whom; controlled release of process and contract details
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: BoK – Integrated process models (lack of collaboration and trust); Process Guides – Financial management
+    verified: true
+
+  - id: COL-04
+    area: COL
+    criterion: Knowledge is shared across providers with clear ownership
+    look_for: shared or linked knowledge repository; who creates, reviews and maintains articles; common templates
+    applies_to: [integrator, provider]
+    weight: 2
+    source: Process Guides – Knowledge management
+    verified: true
+
+  - id: COL-05
+    area: COL
+    criterion: Handoffs across locations and time zones are planned
+    look_for: follow-the-sun handover rules; contact points; language and cultural considerations
+    applies_to: [integrator, provider]
+    weight: 1
+    source: BoK – Detailed roles and responsibilities; Process Guides – Incident management
+    verified: true
+
+  # ------------------------------------------- TRN onboarding, transition and exit
+  - id: TRN-01
+    area: TRN
+    criterion: There is a written onboarding plan with acceptance criteria per process and milestones
+    look_for: standard onboarding process; acceptance criteria; 30/60/90-day style milestones; go-live priorities; feedback from providers
+    applies_to: [customer, integrator]
+    weight: 3
+    source: BoK – Onboarding process
+    verified: true
+
+  - id: TRN-02
+    area: TRN
+    criterion: Provider transition plans are combined into one plan with gaps, overlaps and dependencies checked
+    look_for: overarching integrated plan; dependencies between providers; review by customer and integrator subject matter experts
+    applies_to: [customer, integrator]
+    weight: 3
+    source: BoK – Transition planning
+    verified: true
+
+  - id: TRN-03
+    area: TRN
+    criterion: An incoming provider's transition plan has scope, milestones, resources, assets, staff and risks
+    look_for: approach per workstream; milestones; resource plan; asset and staff transfer; risks
+    applies_to: [provider, customer]
+    weight: 2
+    source: BoK – Transition planning
+    verified: true
+
+  - id: TRN-04
+    area: TRN
+    criterion: Knowledge transfer from the outgoing provider is planned, including keeping key staff available
+    look_for: what is handed over (service definitions, configuration data, open incidents and problems, known failures); incentives to retain key staff
+    applies_to: [customer, integrator, provider]
+    weight: 3
+    source: BoK – Operational handover
+    verified: true
+
+  - id: TRN-05
+    area: TRN
+    criterion: Service status and in-flight work are baselined at handover
+    look_for: acceptance criteria status; volumes of open incidents, problems, requests and projects at cutover
+    applies_to: [integrator, provider]
+    weight: 2
+    source: BoK – Operational handover
+    verified: true
+
+  - id: TRN-06
+    area: TRN
+    criterion: The current service is protected during transition, with early life support afterwards
+    look_for: continuity of service during the move; early life support period; extra monitoring
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: BoK – Sustaining the current service; Early life support
+    verified: false
+
+  - id: TRN-07
+    area: TRN
+    criterion: Offboarding of providers is planned, including access removal and data return
+    look_for: offboarding steps; access and permissions removed; confidential information disposed of; in-flight projects handled
+    applies_to: [customer, integrator]
+    weight: 2
+    source: BoK – End of contract
+    verified: true
+
+  # ------------------------------------------------------------- IMP improvement
+  - id: IMP-01
+    area: IMP
+    criterion: There is a shared improvement register and approach used by all parties
+    look_for: common definition of improvement; central register; baseline and benefit measured
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: Process Guides – Continual service improvement
+    verified: true
+
+  - id: IMP-02
+    area: IMP
+    criterion: Improvement is on governance board agendas and is the main focus of process forums
+    look_for: improvement items on board agendas; process forums driving process improvement
+    applies_to: [customer, integrator]
+    weight: 1
+    source: Process Guides – Continual service improvement
+    verified: true
+
+  - id: IMP-03
+    area: IMP
+    criterion: End-to-end improvements are prioritised over local ones, and lessons are shared across providers
+    look_for: prioritisation mechanism; lessons-learned sharing; providers encouraged or rewarded to contribute
+    applies_to: [customer, integrator, provider]
+    weight: 2
+    source: Process Guides – Continual service improvement; Who is responsible for process improvement
+    verified: true

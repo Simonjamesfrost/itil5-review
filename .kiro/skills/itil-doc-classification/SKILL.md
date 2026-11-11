@@ -1,6 +1,6 @@
 ---
-name: doc-classification
-description: Work out what type of document is being reviewed and which ITIL Product and Service Lifecycle activities it should cover. Use at the start of every review.
+name: itil-doc-classification
+description: ITIL reviews only. Work out what type of document is being reviewed and which ITIL Product and Service Lifecycle activities it should cover. Use at the start of every review.
 ---
 
 # Document classification

@@ -2,6 +2,10 @@
 kb/*
 !kb/README.md
 
+# SIAM source text – download on each machine
+kb-siam/*
+!kb-siam/README.md
+
 # Documents under review and their reports – may hold company data
 inbox/*
 !inbox/.gitkeep

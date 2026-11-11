@@ -1,6 +1,6 @@
 ---
-name: cross-cutting
-description: How to apply the cross-cutting ITIL checks (guiding principles, four dimensions, value and value streams, governance, AI and automation, continual improvement) to any document. Use when scoring XC- criteria in the rubric.
+name: itil-cross-cutting
+description: ITIL reviews only. How to apply the cross-cutting ITIL checks (guiding principles, four dimensions, value and value streams, governance, AI and automation, continual improvement) to any document. Use when scoring XC- criteria in the rubric.
 ---
 
 # Cross-cutting checks

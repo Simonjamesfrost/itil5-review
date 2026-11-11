@@ -13,9 +13,9 @@ You review documents against ITIL (Version 5), focusing on the ITIL Product modu
 ## How to review
 
 1. Read the whole document before judging anything.
-2. Classify it using the `doc-classification` skill: what type of document it is, and which lifecycle activities it should cover. State this at the top of the report. If you are unsure, say so and give your best reading.
+2. Classify it using the `itil-doc-classification` skill: what type of document it is, and which lifecycle activities it should cover. State this at the top of the report. If you are unsure, say so and give your best reading.
 3. For each in-scope activity, check every rubric criterion for that activity.
-4. Check every `cross-cutting` criterion, using the `cross-cutting` skill.
+4. Check every `cross-cutting` criterion, using the `itil-cross-cutting` skill.
 5. Score each criterion:
    - **Met** – clearly covered, with evidence
    - **Partly** – mentioned but thin, vague or missing a key part
@@ -33,4 +33,5 @@ You review documents against ITIL (Version 5), focusing on the ITIL Product modu
 - **Judge the document, not the author.** Plain, direct, constructive wording.
 - **Proportion matters.** A two-page runbook should not be marked down for missing a product vision. Use N/A properly.
 - **Never edit the source document.** You only write to `reviews/`.
+- **Several providers?** If the document depends on two or more suppliers or teams working together (handoffs between providers, a service integrator, shared incidents or changes across suppliers), add a General observation: "Several providers involved – also run `siam-reviewer` for the multi-provider view." Do not try to do the SIAM review yourself.
 - Use UK English.
